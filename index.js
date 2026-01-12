@@ -6,6 +6,10 @@ const AdblockerPlugin = require( 'puppeteer-extra-plugin-adblocker');
 puppeteer.use(StealthPlugin());
 puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
+const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const TURNSTILE_LOAD_DELAY = 3000;
+const TURNSTILE_VALIDATION_DELAY = 2000;
+
 
 async function scrapeWebsite() {
     let browser;
@@ -19,7 +23,8 @@ async function scrapeWebsite() {
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage'
+                '--disable-dev-shm-usage',
+                '--disable-blink-features=AutomationControlled'
             ]
         });
 
@@ -28,6 +33,12 @@ async function scrapeWebsite() {
 
         // Set viewport size
         await page.setViewport({ width: 1280, height: 720 });
+        
+        await page.setUserAgent(USER_AGENT);
+            // 2. Extra Stealth: Fix WebDriver Overrides
+        await page.evaluateOnNewDocument(() => {
+            Object.defineProperty(navigator, 'webdriver', { get: () => false });
+        });
 
         // Navigate to website
         console.log('Navigating to website...');
