@@ -1,3 +1,9 @@
 [build]
 builder = "railpack"
 packages = ["nodejs-20", "chromium"]
+
+[build.install]
+command = "npm install"
+
+[deploy]
+startCommand = "npm run start"
