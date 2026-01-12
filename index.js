@@ -8,7 +8,7 @@ async function scrapeWebsite() {
 
         // Launch browser
         browser = await puppeteer.launch({
-            headless: true,
+            headless: 'shell',
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
