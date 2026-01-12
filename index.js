@@ -1,4 +1,11 @@
 const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require( 'puppeteer-extra-plugin-stealth');
+const AdblockerPlugin = require( 'puppeteer-extra-plugin-adblocker');
+
+// Add stealth and adblocker plugins to puppeteer
+puppeteer.use(StealthPlugin());
+puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
+
 
 async function scrapeWebsite() {
     let browser;
