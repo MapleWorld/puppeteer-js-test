@@ -7,9 +7,6 @@ puppeteer.use(StealthPlugin());
 puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
-const TURNSTILE_LOAD_DELAY = 3000;
-const TURNSTILE_VALIDATION_DELAY = 2000;
-
 
 async function scrapeWebsite() {
     let browser;
