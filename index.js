@@ -91,6 +91,7 @@ async function startPuppeteer() {
 
     // Wait for dialog to close
     await delay(500);
+    process.exit(0);
 }
 
 /**
