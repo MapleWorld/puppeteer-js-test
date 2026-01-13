@@ -1,15 +1,28 @@
 {
-  "name": "kirby-cafe-bot",
+  "name": "puppeteer",
   "version": "1.0.0",
-  "description": "A full-stack reservation automation platform for Kirby Cafe",
-  "main": "backend/src/server.js",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "job": "cd async_job && npm start"
+    "start": "node index.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.16.0",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^23.11.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-adblocker": "^2.13.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "resend": "^6.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },  
   "engines": {
-    "node": ">=22.15.0"
+    "node": ">=20.0.0"
   }
 }
