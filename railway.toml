@@ -3,7 +3,7 @@ builder = "railpack"
 packages = ["nodejs-20", "chromium"]
 
 [build.install]
-command = "npm install"
+command = "cd async_job && npm install"
 
 [deploy]
 startCommand = "npm run start"
